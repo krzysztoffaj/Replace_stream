@@ -22,13 +22,11 @@ public class Main {
         String replacedString = new String();
         replacing = input.readStreamReplacing();
         contains = file.ifContains(fileText, toReplace);
-        do {
-        if (contains == true) {
+
+        while (contains != false) {
             replacedString = fileText.replace(toReplace, replacing);
             contains = file.ifContains(replacedString, toReplace);
         }
-        } while(contains = false);
-
         System.out.println(replacedString);
     }
 }

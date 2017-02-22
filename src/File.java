@@ -63,4 +63,7 @@ public class File {
 
         }
     }
+//    static void writeStringToFile(File file, String data){
+//
+//    }
 }

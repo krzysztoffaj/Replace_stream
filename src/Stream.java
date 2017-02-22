@@ -9,8 +9,6 @@ import java.io.StringWriter;
  */
 public class Stream {
     private static BufferedInputStream inputStream;
-//    private static String toReplace;
-//    private static
 
     public static String readStreamToReplace() {
         System.out.println("Stream to replace: ");
