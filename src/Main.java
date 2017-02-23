@@ -19,7 +19,7 @@ public class Main {
 
         fileText = file.loadFile("input1.txt");
         toReplace = input.readStreamToReplace();
-        String replacedString = new String();
+        String replacedString = null;
         replacing = input.readStreamReplacing();
         contains = file.ifContains(fileText, toReplace);
 
@@ -28,7 +28,9 @@ public class Main {
             contains = file.ifContains(replacedString, toReplace);
         }
 
-        file.writeFile("input1.txt",replacedString);
+        if (replacedString != null) {
+            file.writeFile("input1.txt", replacedString);
+        }
 //        System.out.println(replacedString);
     }
 }
