@@ -1,16 +1,15 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 
 /**
  * Created by fajek on 2/20/17.
  */
 public class File {
     private static FileInputStream input = null;
-    private static FileOutputStream output = null;
+//    private static FileOutputStream output = null;
 
-    public static String loadFile() {
+    public static String loadFile(String fileName) {
         try {
-            input = new FileInputStream("input1.txt");
+            input = new FileInputStream(fileName);
             StringBuilder builder = new StringBuilder();
             int readInt;
             while ((readInt = input.read()) != -1) {
@@ -53,17 +52,24 @@ public class File {
         return ifIs;
     }
 
-    public static void writeFile(String change) {
+    public static void writeFile(String fileName, String changedString) {
+        BufferedWriter writer = null;
         try {
-            output = new FileOutputStream("input1.txt");
-            int stream;
+//            output = new FileOutputStream("input1.txt");
+//            int stream;
+            writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(changedString);
 
-//            while ((stream = ))
-        } catch (Exception e) {
-
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
     }
-//    static void writeStringToFile(File file, String data){
-//
-//    }
 }

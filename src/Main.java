@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("A program to replace streams.");
 
-        fileText = file.loadFile();
+        fileText = file.loadFile("input1.txt");
         toReplace = input.readStreamToReplace();
         String replacedString = new String();
         replacing = input.readStreamReplacing();
@@ -27,6 +27,8 @@ public class Main {
             replacedString = fileText.replace(toReplace, replacing);
             contains = file.ifContains(replacedString, toReplace);
         }
-        System.out.println(replacedString);
+
+        file.writeFile("input1.txt",replacedString);
+//        System.out.println(replacedString);
     }
 }
