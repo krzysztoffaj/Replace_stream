@@ -1,11 +1,13 @@
+import com.sun.deploy.util.StringUtils;
+
 import java.io.*;
+//import org.apache.commons.
 
 /**
  * Created by fajek on 2/20/17.
  */
 public class File {
     private static FileInputStream input = null;
-//    private static FileOutputStream output = null;
 
     public static String loadFile(String fileName) {
         try {
@@ -18,8 +20,6 @@ public class File {
             byte[] bytes;
             String loadedFile = builder.toString();
             bytes = loadedFile.getBytes();
-//            System.out.println(bytes);
-//            System.out.println(builder);
 
             return loadedFile;
 
@@ -37,26 +37,20 @@ public class File {
         }
     }
 
-    public static boolean ifContains(String file, String stream) {
-        boolean ifIs = false;
+    public static int ifContains(String file, String stream) {
+        int numberOfChanges = 0;
 
         //Check ignoring case
         if (file.toLowerCase().contains(stream.toLowerCase())) {
-//            System.out.println("File contains certain stream.");
-            ifIs = true;
-        } else {
-//            System.out.println("Input stream was not found in the file.");
-            ifIs = false;
+            numberOfChanges = org.apache.commons.lang3.StringUtils.countMatches(file, stream);
         }
 
-        return ifIs;
+        return numberOfChanges;
     }
 
     public static void writeFile(String fileName, String changedString) {
         BufferedWriter writer = null;
         try {
-//            output = new FileOutputStream("input1.txt");
-//            int stream;
             writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(changedString);
 
