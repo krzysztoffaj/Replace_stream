@@ -1,7 +1,6 @@
-import com.sun.deploy.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
-//import org.apache.commons.
 
 /**
  * Created by fajek on 2/20/17.
@@ -17,9 +16,7 @@ public class File {
             while ((readInt = input.read()) != -1) {
                 builder.append((char) readInt);
             }
-            byte[] bytes;
             String loadedFile = builder.toString();
-            bytes = loadedFile.getBytes();
 
             return loadedFile;
 
@@ -42,7 +39,7 @@ public class File {
 
         //Check ignoring case
         if (file.toLowerCase().contains(stream.toLowerCase())) {
-            numberOfChanges = org.apache.commons.lang3.StringUtils.countMatches(file, stream);
+            numberOfChanges = StringUtils.countMatches(file, stream);
         }
 
         return numberOfChanges;
