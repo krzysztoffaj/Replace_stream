@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Replace_stream.iml" filepath="$PROJECT_DIR$/Replace_stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Replace_text.iml" filepath="$PROJECT_DIR$/Replace_text.iml" />
     </modules>
   </component>
 </project>

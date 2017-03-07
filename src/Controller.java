@@ -30,6 +30,8 @@ public class Controller {
     private Alert alert;
     @FXML
     private ComboBox comboBox;
+    @FXML
+    private CheckBox checkBox;
 
     private String prepareExtension() {
         if (comboBox.getValue() == null) {
@@ -58,6 +60,7 @@ public class Controller {
         extensions.add("Encapsulated Comma-Separated Values (*.ecsv)");
         extensions.add("SubRip Video Subtitle Format (*.srt)");
         extensions.add("Subtitles File Format (*.sub)");
+        extensions.add("JPEG (*.jpg)");
 
         ObservableList extensionsOb = FXCollections.observableList(extensions);
         comboBox.setItems(extensionsOb);
@@ -151,11 +154,16 @@ public class Controller {
                     ifChanged = true;
                 }
 
-                numberOfChanges += file.ifContains(fileText, toReplaceString);
-                replacedString = fileText.replace(toReplaceString, replacingString);
+                if (checkBox.isSelected()) {
+                    numberOfChanges += file.ifContainsIgnoringCase(fileText, toReplaceString);
+                    replacedString = fileText.replace(toReplaceString.toLowerCase(), replacingString.toLowerCase());
+                } else {
+                    numberOfChanges += file.ifContains(fileText, toReplaceString);
+                    replacedString = fileText.replace(toReplaceString, replacingString);
+                }
 
 
-                if (replacedString != null) {
+                if (numberOfChanges != 0 && replacedString != null) {
                     file.writeFile(filesToConvert.get(i).toString(), replacedString);
                 }
             }

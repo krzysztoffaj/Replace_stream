@@ -34,12 +34,23 @@ public class File {
         }
     }
 
-    public static int ifContains(String file, String stream) {
+    public static int ifContains(String file, String text) {
         int numberOfChanges = 0;
 
         //Check ignoring case
-        if (file.toLowerCase().contains(stream.toLowerCase())) {
-            numberOfChanges = StringUtils.countMatches(file, stream);
+        if (file.contains(text)) {
+            numberOfChanges = StringUtils.countMatches(file, text);
+        }
+
+        return numberOfChanges;
+    }
+
+    public static int ifContainsIgnoringCase(String file, String text) {
+        int numberOfChanges = 0;
+
+        //Check ignoring case
+        if (file.toLowerCase().contains(text.toLowerCase())) {
+            numberOfChanges = StringUtils.countMatches(file.toLowerCase(), text.toLowerCase());
         }
 
         return numberOfChanges;
