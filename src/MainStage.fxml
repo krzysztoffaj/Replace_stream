@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -35,6 +35,11 @@
                      </HBox.margin>
                   </Text>
                   <ComboBox fx:id="comboBox" onShown="#initializeComboBox" prefHeight="26.0" prefWidth="365.0" />
+                  <Button mnemonicParsing="false" onAction="#addExtensionStage" text="Add extension...">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="75.0" />
@@ -93,7 +98,7 @@
                            <font>
                               <Font size="16.0" />
                            </font></Text>
-                        <TextField fx:id="toReplace" onAction="#pressButton" />
+                        <TextField fx:id="toReplace" onAction="#doTheReplacement" />
                      </children>
                      <HBox.margin>
                         <Insets right="25.0" />
@@ -105,7 +110,7 @@
                            <font>
                               <Font size="16.0" />
                            </font></Text>
-                        <TextField fx:id="replacing" onAction="#pressButton" />
+                        <TextField fx:id="replacing" onAction="#doTheReplacement" />
                      </children>
                      <HBox.margin>
                         <Insets left="25.0" />
@@ -127,7 +132,7 @@
          </BorderPane.margin></VBox>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#pressButton" text="Apply changes" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#doTheReplacement" text="Apply changes" BorderPane.alignment="CENTER">
          <font>
             <Font size="16.0" />
          </font>
