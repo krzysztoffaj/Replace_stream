@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Replace_text.iml" filepath="$PROJECT_DIR$/Replace_text.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TextReplacer.iml" filepath="$PROJECT_DIR$/TextReplacer.iml" />
     </modules>
   </component>
 </project>
